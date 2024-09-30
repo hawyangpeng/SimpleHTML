@@ -31,5 +31,4 @@ function testDB(a){
 }
 
 
-
-
+module.exports = testDB()
