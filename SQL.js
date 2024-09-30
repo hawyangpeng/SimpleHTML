@@ -17,6 +17,7 @@ console.log('Connected to MySQL database!');
 }
 });
 
+
 connection.query("SELECT * FROM jptestdb.contacts", function (err, result, fields) {
   if (err) throw err;
   else {
