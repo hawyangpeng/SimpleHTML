@@ -2,7 +2,7 @@ const reqObject = {
 	method: 'GET',
 };
 
-async function getData() {
+async function getNasData() {
     try {
       const response = await fetch('https://api.nasa.gov/techtransfer/patent/?engine&api_key=SAj1Wgdf7R2izh1glgTfXKROFvwCR8AhPTnRiWyJ',reqObject);
       if (!response.ok) {
@@ -16,13 +16,13 @@ async function getData() {
     }
   }
 
-getData()
+getNasData()
 
 function b(arg){
   console.log(arg)
 }
 
-
+module.exports = getNasData()
 
 //SAj1Wgdf7R2izh1glgTfXKROFvwCR8AhPTnRiWyJ
 //NASA api key

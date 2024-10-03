@@ -3,11 +3,21 @@ const app = express();
 const port = 3000;
 
 const DBdata = require("./SQL.js")
+//const getNasData = require("./NasAPI.js")
 
 //handes get requests to this url
 app.get("/", function (req, res) {
   console.log('reached the back end')
+});
+
+app.get("/getData", function (req, res) {
+  console.log('getting data')
   DBdata
+});
+
+app.get("/NASA", function (req, res) {
+  console.log('reached NasAPI')
+  //getNasData
 });
 
 
