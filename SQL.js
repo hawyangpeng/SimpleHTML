@@ -17,42 +17,27 @@ console.log('Connected to MySQL database!');
 }
 });
 
+
+//data from connection.query is an object.
+//a promise is wrapped around the object so we can use the async function to call it later
 function getData (){
   const gg = new Promise((resolve,reject)=>{
     connection.query("SELECT * FROM jptestdb.contacts", function (err, result, fields) {
       if (err) throw err;
       else {
-      return resolve (result)
+      return resolve (result) //the return here is important
       }
     });
   })
   return gg
 }
 
-async function finalData(){
+async function DBdata(){
   const data = await getData()
-  console.log(data)
+  return data
+  //console.log(data)
 }
 
-finalData()
-// function getData1 (){
-//   const promise1 = new Promise ((resolve,reject) => {
-//     resolve(connection.query("SELECT * FROM jptestdb.contacts", function (err, result, fields) {
-//       if (err) throw err;
-//       else {
-//       return result
-//       }}))})
-//   return promise1
-// }
+DBdata()
 
-
-
-
-
-//Create a function that takes an argument. Run the function inside a block where you want to extract a variable.
-// function testDB(a){
-//     console.log(a)
-// }
-
-
-//module.exports = testDB()
+module.exports = DBdata()
