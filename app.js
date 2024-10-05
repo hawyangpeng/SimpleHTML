@@ -15,6 +15,7 @@ app.get("/", function (req, res) {
 app.get("/getData", function (req, res) {
   console.log('getting data')
   console.log(DBdata)
+  //res.send(DBdata)
   res.send(DBdata)
 });
 
