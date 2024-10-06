@@ -24,7 +24,7 @@ document.getElementById('btn2').addEventListener("click", (event) => {
     //     }
     //     )
     
-    fetch ('http://localhost:3000/getData')
+    fetch ('http://localhost:3000/fakeGetData')
         .then (response => console.log(response.json()))
 
     }
