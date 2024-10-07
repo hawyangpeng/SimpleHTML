@@ -1,13 +1,10 @@
 const express = require("express");
-const { getData } = require("./SQL.js");
-const { getData: fakeGetData } = require("./fakeSQL.js");
+const { getData } = require("./SQL2.js");
 const app = express();
 const port = 3000;
 var cors = require('cors');
 
 app.use(cors())
-
-const DBdata = require("./SQL.js")
 
 //handes get requests to this url
 app.get("/", function (req, res) {
@@ -22,19 +19,8 @@ app.get("/", function (req, res) {
 // PUT /{entity} Update record [2]
 // DELETE /{entity} Delete record [3]
 
-app.get("/fakeGetData", async function (req, res) {
-  // Fetching on demand
-  const result = await fakeGetData()
-  console.log(result)
-  res.send(result)
-});
 
 app.get("/getData", async function (req, res) {
-  //Fetching and store in memory
-  console.log('getting data')
-  console.log(DBdata)
-  //res.send(DBdata)
-  res.send(DBdata)
 
   // Fetching on demand
   const result = await getData()

@@ -12,7 +12,7 @@ document.getElementById('btn2').addEventListener("click", (event) => {
     console.log('get data button clicked')
 
 
-    const textDecoder = new TextDecoder('utf-8')
+    //const textDecoder = new TextDecoder('utf-8')
 
     // fetch ('http://localhost:3000/getData')
     //     .then (response => {
@@ -24,8 +24,8 @@ document.getElementById('btn2').addEventListener("click", (event) => {
     //     }
     //     )
     
-    fetch ('http://localhost:3000/fakeGetData')
-        .then (response => console.log(response.json()))
-
+    fetch ('http://localhost:3000/getData')
+        .then (response => response.json())
+        .then (data => console.log(data))
     }
 )
