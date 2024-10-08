@@ -9,11 +9,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
-    "@types/node": "^22.7.4"
+    "@types/node": "^22.7.4",
+    "tailwindcss": "^3.4.13"
   }
 }
