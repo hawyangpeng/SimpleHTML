@@ -45,20 +45,31 @@ document.getElementById('btn2').addEventListener("click", (event) => {
         })
 })
 
+const form = document.getElementById('form')
 
-document.getElementById('btn3').addEventListener("click", (event) => {
-    console.log('post data button clicked')
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
 
-    const testData = { name:"John" }
+    const formData = new FormData(form)
+
+    console.log('submitted')
+   
+
+    // for (const pair of formData.entries()) {
+    //     console.log(pair[0], pair[1]);
+    //   }
 
     const options = {
-        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+        //     'Content-Type': 'application/json'
+                'enctype' : "multipart/form-data"
           },
-        body: JSON.stringify(testData)
+        method: 'POST',
+        body: formData
     }
 
     fetch ('http://localhost:3000/postData', options)
-
+        // .then(res => res.json())
+        // .then(data => console.log(data))
+        //.catch(err => console.log(err))
 })

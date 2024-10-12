@@ -4,14 +4,18 @@ const app = express();
 const port = 3000;
 var cors = require('cors');
 var bodyParser = require('body-parser')
+const multer  = require('multer')
+const upload = multer()
 
 app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json())
+//app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //handes get requests to this url
 app.get("/", function (req, res) {
   console.log('reached the back end')
+  
 });
 
 // Endpoints
@@ -29,9 +33,9 @@ app.get("/getData", async function (req, res) {
   res.send(result)
 });
 
-app.post("/postData", async function (req, res) {
+app.post("/postData", upload.none(), async function (req, res) {
   console.log('Post request to back end')
-  console.log(req.body)
+  console.log(await req.body)
 });
 
 // listens the the port so the get requests above works?
