@@ -1,9 +1,8 @@
 const express = require("express");
-const { getData } = require("./SQL2.js");
+const { getData, postData } = require("./SQL2.js");
 const app = express();
 const port = 3000;
 var cors = require('cors');
-var bodyParser = require('body-parser')
 const multer  = require('multer')
 const upload = multer()
 
@@ -36,6 +35,14 @@ app.get("/getData", async function (req, res) {
 app.post("/postData", upload.none(), async function (req, res) {
   console.log('Post request to back end')
   console.log(await req.body)
+  console.log(await typeof req.body.fname)
+  postData(
+    req.body.fname,
+    req.body.lname,
+    req.body.email,
+    req.body.mobile
+  )
+  res.send('send response back')
 });
 
 // listens the the port so the get requests above works?

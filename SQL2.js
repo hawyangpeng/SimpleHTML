@@ -30,7 +30,22 @@ async function getData (){
   }
 }
 
+async function postData (FirstName, LastName, Email, Mobile){
+  try {
+    var sql = `INSERT INTO jptestdb.contacts (FirstName, LastName, Email, Mobile) VALUES ("${FirstName}","${LastName}","${Email}","${Mobile}")`;
+
+    connection.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+  } catch (err){
+    console.log(err)
+  }
+}
+
+
 
 module.exports = {
   getData,
+  postData
 }
