@@ -43,9 +43,22 @@ async function postData (FirstName, LastName, Email, Mobile){
   }
 }
 
+async function deleteData (ID){
+  try {
+    var sql = `DELETE FROM jptestdb.contacts WHERE ID = "${ID}"`;
+
+    connection.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record deleted");
+  });
+  } catch (err){
+    console.log(err)
+  }
+}
 
 
 module.exports = {
   getData,
-  postData
+  postData,
+  deleteData,
 }

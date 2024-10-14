@@ -1,5 +1,5 @@
 const express = require("express");
-const { getData, postData } = require("./SQL2.js");
+const { getData, postData, deleteData } = require("./SQL2.js");
 const app = express();
 const port = 3000;
 var cors = require('cors');
@@ -14,7 +14,7 @@ app.use(cors())
 //handes get requests to this url
 app.get("/", function (req, res) {
   console.log('reached the back end')
-  
+
 });
 
 // Endpoints
@@ -43,6 +43,13 @@ app.post("/postData", upload.none(), async function (req, res) {
     req.body.mobile
   )
   res.send('send response back')
+});
+
+
+app.get("/deleteData", async function (req, res) {
+  // Fetching on demand
+  console.log('deleteData to back end')
+  deleteData('6')
 });
 
 // listens the the port so the get requests above works?

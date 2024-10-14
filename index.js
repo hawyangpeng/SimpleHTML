@@ -1,16 +1,19 @@
 
 
+
+//Initial loading
 document.addEventListener("DOMContentLoaded", (event) => {
     console.log('index page loaded')
     fetch ('http://localhost:3000/')
     }
 )
 
-document.getElementById('p0').innerHTML = "Inner"
 
+//getData
 document.getElementById('btn2').addEventListener("click", (event) => {
     console.log('get data button clicked')
 
+    //Fetch data
     fetch ('http://localhost:3000/getData')
         .then (response => response.json())
         .then (data => {
@@ -25,6 +28,9 @@ document.getElementById('btn2').addEventListener("click", (event) => {
                         <td>${entry.Mobile}</td>
                         <td>
                             <button onclick="location.reload()">Edit</button>
+                        </td>
+                        <td>
+                            <button onclick="${deleteEntry(entry.ID)}">Delete</button>
                         </td>
                     <tr>
                 `
@@ -45,20 +51,16 @@ document.getElementById('btn2').addEventListener("click", (event) => {
         })
 })
 
+//Form data
 const form = document.getElementById('form')
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 
-    const formData = new FormData(form)
+    const formData = new FormData(form) //Insert form into formData object
 
     console.log('submitted')
    
-
-    // for (const pair of formData.entries()) {
-    //     console.log(pair[0], pair[1]);
-    //   }
-
     const options = {
         headers: {
         //     'Content-Type': 'application/json'
@@ -73,3 +75,22 @@ form.addEventListener("submit", (event) => {
         // .then(data => console.log(data))
         //.catch(err => console.log(err))
 })
+
+
+//deleteData
+
+const deleteEntry = function deleteEntry(ID){
+console.log(ID)
+//     const options = {
+//         headers: {
+//         //     'Content-Type': 'application/json'
+//                 'enctype' : "multipart/form-data"
+//           },
+//         method: 'POST',
+//         body: ID
+//         }
+
+//     fetch ('http://localhost:3000/deleteData', options)
+//             // .then (response => response.json())
+//             // .then (data => {console.log(data)})
+}
