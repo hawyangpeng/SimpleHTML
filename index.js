@@ -19,6 +19,10 @@ document.getElementById('btn2').addEventListener("click", (event) => {
         .then (data => {
             console.log(data)
 
+            // for (const value of data) {
+            //     console.log(value);
+            //   }
+
             const tableEntries = data.map( entry =>
                 `  <tr>                
                         <td>${entry.ID}</td>
@@ -30,7 +34,7 @@ document.getElementById('btn2').addEventListener("click", (event) => {
                             <button onclick="location.reload()">Edit</button>
                         </td>
                         <td>
-                            <button onclick="${deleteEntry(entry.ID)}">Delete</button>
+                            <button id=${entry.ID}>Delete</button>
                         </td>
                     <tr>
                 `
@@ -48,6 +52,16 @@ document.getElementById('btn2').addEventListener("click", (event) => {
                 `
             
             document.getElementById('table').innerHTML = table
+
+            //Spaghetti. but it works. I'm sure there's a better way to do this.
+            const entriesBtn = data.map( entry =>
+                document.getElementById(entry.ID).addEventListener("click", (event) => {
+                    console.log(`Delete entry ${entry.ID}`)
+                })
+            )
+
+            entriesBtn
+
         })
 })
 
@@ -79,7 +93,8 @@ form.addEventListener("submit", (event) => {
 
 //deleteData
 
-const deleteEntry = function deleteEntry(ID){
+
+function deleteEntry(ID){
 console.log(ID)
 //     const options = {
 //         headers: {
