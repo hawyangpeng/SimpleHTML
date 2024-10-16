@@ -57,6 +57,19 @@ document.getElementById('btn2').addEventListener("click", (event) => {
             const entriesBtn = data.map( entry =>
                 document.getElementById(entry.ID).addEventListener("click", (event) => {
                     console.log(`Delete entry ${entry.ID}`)
+
+                const options = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                        },
+                    method: 'DELETE',
+                    body: JSON.stringify({ 'entryNumber': entry.ID })
+                }
+            
+                fetch ('http://localhost:3000/deleteData', options)
+                    // .then(res => res.json())
+                    // .then(data => console.log(data))
+                    //.catch(err => console.log(err))
                 })
             )
 
@@ -93,19 +106,3 @@ form.addEventListener("submit", (event) => {
 
 //deleteData
 
-
-function deleteEntry(ID){
-console.log(ID)
-//     const options = {
-//         headers: {
-//         //     'Content-Type': 'application/json'
-//                 'enctype' : "multipart/form-data"
-//           },
-//         method: 'POST',
-//         body: ID
-//         }
-
-//     fetch ('http://localhost:3000/deleteData', options)
-//             // .then (response => response.json())
-//             // .then (data => {console.log(data)})
-}

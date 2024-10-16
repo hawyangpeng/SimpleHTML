@@ -5,10 +5,10 @@ const port = 3000;
 var cors = require('cors');
 const multer  = require('multer')
 const upload = multer()
+var bodyParser = require('body-parser')
 
 app.use(cors())
-//app.use(bodyParser.json())
-//app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 //handes get requests to this url
@@ -46,10 +46,10 @@ app.post("/postData", upload.none(), async function (req, res) {
 });
 
 
-app.get("/deleteData", async function (req, res) {
-  // Fetching on demand
+app.delete("/deleteData", bodyParser.json() , async function (req, res) {
   console.log('deleteData to back end')
-  deleteData('6')
+  console.log(await req.body)
+  deleteData(await req.body.entryNumber)
 });
 
 // listens the the port so the get requests above works?
