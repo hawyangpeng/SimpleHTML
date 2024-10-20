@@ -9,12 +9,9 @@ var bodyParser = require('body-parser')
 
 app.use(cors())
 
-
-
 //handes get requests to this url
 app.get("/", function (req, res) {
   console.log('reached the back end')
-
 });
 
 // Endpoints
@@ -24,7 +21,6 @@ app.get("/", function (req, res) {
 // POST /{entity} Create record [1]
 // PUT /{entity} Update record [2]
 // DELETE /{entity} Delete record [3]
-
 
 app.get("/getData", async function (req, res) {
   // Fetching on demand
@@ -45,7 +41,6 @@ app.post("/postData", upload.none(), async function (req, res) {
   res.send('send response back')
 });
 
-
 app.delete("/deleteData", bodyParser.json() , async function (req, res) {
   console.log('deleteData to back end')
   console.log(await req.body)
@@ -56,7 +51,6 @@ app.delete("/deleteData", bodyParser.json() , async function (req, res) {
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}!`);
 });
-
 
 // close the MySQL connection
 //connection.end();

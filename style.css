@@ -11,3 +11,77 @@ body {
     padding: 2px;
     text-align: left;
   }
+
+  .flex-container {
+
+    display: flex;
+    height: 100%;
+    margin: 25px;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.contact {
+    display: block;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.input-flex {
+  display: flex;
+  justify-content: space-between;
+  direction: horizontal;
+  height: 100%;
+  margin: 5px;
+  gap: 5px;
+}
+
+.form {
+  width: 300px;
+  border: 1px solid;
+  border-collapse: collapse;
+
+}
+
+.div {
+  gap: 5px;
+
+}
+
+.table,th,td {
+  width: 800px;
+  border: 1px solid;
+  border-collapse: collapse;
+  gap: 5px;
+
+}
+
+.refresh {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  height: 50px;
+  width: 75px;
+}
+
+.leftnavbar{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebuttons {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  height: 30px;
+  Width: 80px;
+}
+
+a.button {
+  padding: 1px 6px;
+  border: 1px outset buttonborder;
+  border-radius: 3px;
+  color: buttontext;
+  background-color: buttonface;
+  text-decoration: none;
+}

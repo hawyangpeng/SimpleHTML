@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <aside>
-        <h4>Epcot Center</h4>
-        <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
-    </aside>
-    <body>
-        <h2>James' Portal</h2>
-        <p id="p0">Please sign in.</p>
-        <head>
-            <link rel="stylesheet" href="style.css">
-            </head>
-        <div>
-            <form id='form'>
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname"><br>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body class="flex-container">
+        <div id="navbar">
+            <!-- refer navbar.js -->
+        </div>
+        <div class="div">
+            <form id='form' class="form">
+                <label class="contact">Sign In</label>
+                <div class="input-flex">
+                    <label for="user">User:</label>
+                    <input type="text" id="user" name="user">
+                </div>
+                <div class="input-flex">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password">
+                </div>
+                <input type="submit" value="Submit" class="refresh">
             </form>
         </div>
-       
-        <button href="main.html">Refresh Page</button>
-    </body>
 
+        <script type='module' src="./navbar.js"></script>
+        
+    </body>
 </html>
