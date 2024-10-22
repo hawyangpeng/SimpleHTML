@@ -7,5 +7,6 @@ document.getElementById('navbar').innerHTML =
                 <a href="./signIn.html" class="button">Sign In</a>
                 <a href="./main.html" class="button">Contacts</a>
                 <a href="./dxfviewer.html" class="button">DXF Viewer</a>
+                <a href="./datatable.html" class="button">Datatable</a>
             </ul>
         `
